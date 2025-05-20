@@ -10,14 +10,6 @@ const cors = require('cors');
 app.use(cors());
 
 
-app.get('/users/name', (req, res) => {
-  const users = loadUsers();
-  res.json(users); 
-});
-
-
-
-
 
 function loadUsers() { 
     if (!fs.existsSync(USERS_FILE)) return [];
@@ -70,6 +62,15 @@ app.post('/users/login', (req, res) => {
         return res.status(400).send("1");
     }
 });
+
+
+
+
+app.get('/users/json', (req, res) => {
+  const users = loadUsers();
+  res.json(users); 
+});
+
 
 
 app.listen(3000)
