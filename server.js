@@ -10,6 +10,15 @@ const cors = require('cors');
 app.use(cors());
 
 
+app.get('/users/name', (req, res) => {
+  const users = loadUsers();
+  res.json(users); 
+});
+
+
+
+
+
 function loadUsers() { 
     if (!fs.existsSync(USERS_FILE)) return [];
     const data = fs.readFileSync(USERS_FILE);
