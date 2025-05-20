@@ -69,6 +69,10 @@ app.get('/users/json', (req, res) => {
   res.json(users); 
 });
 
+app.post('/users/clear', (req, res) => {
+  saveUsers([]); 
+  res.send('All users cleared.');
+});
 
 
 const PORT = process.env.PORT || 3000;
