@@ -33,7 +33,7 @@ app.post('/users/register', (req, res) =>{
     console.log('Form submitted');
 
     if (users.find(u => u.name === req.body.name)) {
-        return res.status(400).send('User already exists');
+        return res.status(400).send('1');
     }
 
     const user = {name: req.body.name, password: req.body.password,
@@ -50,7 +50,7 @@ app.post('/users/register', (req, res) =>{
 app.post('/users/login', (req, res) => {
     const users = loadUsers();
     const user = users.find(u => u.name === req.body.name);
-
+    console.log('log in');
     if (!user) {
         return res.status(400).send("1");
     }
