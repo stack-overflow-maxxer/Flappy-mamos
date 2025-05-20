@@ -64,8 +64,6 @@ app.post('/users/login', (req, res) => {
 });
 
 
-
-
 app.get('/users/json', (req, res) => {
   const users = loadUsers();
   res.json(users); 
@@ -73,4 +71,7 @@ app.get('/users/json', (req, res) => {
 
 
 
-app.listen(3000)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server beží na porte ${PORT}`);
+});
